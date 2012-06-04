@@ -1,0 +1,19 @@
+// Place all the styles related to the restaurant controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin icon($num){
+  $full: '/assets/themes/icons_' + $num + '.png';
+  background-image: url($full);
+}
+
+.theme{
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: url(/assets/themes/icons_01.png) no-repeat;
+  background-size: 100%;
+
+  &.italien{ @include icon('03') }
+  &.bistro{ @include icon('03') }
+}

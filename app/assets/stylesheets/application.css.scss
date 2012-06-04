@@ -4,7 +4,18 @@
 */
 
 
-
+header{
+  a, a:hover{
+    text-decoration: none;
+    color: black;
+  }
+  .logo{
+    font-family: 'Bree Serif', serif;
+    font-size: 4em;
+    line-height: 100px;
+    text-align: center;
+  }
+}
 
 .content {
   background-color: #eee;

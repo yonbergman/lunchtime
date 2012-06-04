@@ -1,0 +1,28 @@
+%h1 All Restaurants
+
+%table.table.table-bordered
+  %thead
+    %tr
+      %td Name
+      %td Theme
+      %td Price Range
+      %td Accepts
+
+
+
+%a.btn.btn-large.btn-success{:href => new_restaurant_path} Add
+
+
+%script#rest_row{:type => "text/template"}
+  %td
+    %strong <%= name %>
+  %td
+    %span <%= theme %>
+  %td <%= price_range %>
+  %td.payment_options
+
+
+:javascript
+  $(document).ready(function(){
+    app.restaurants.reset(#{@restaurants.to_json});
+  })

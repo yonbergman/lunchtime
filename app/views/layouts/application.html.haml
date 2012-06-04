@@ -7,15 +7,16 @@
     %title= content_for?(:title) ? yield(:title) : "Lunch-Time"
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
+    = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Bree+Serif", :media => "all"
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
     = yield(:head)
   %body
-    %header.navbar.navbar-fixed-top
-      %nav.navbar-inner
-        .container
-          = render 'layouts/navigation'
+    %header
+      %a{:href => root_path}
+        %h1.logo
+          Lunch Time
     #main{:role => "main"}
       .container
         .content
