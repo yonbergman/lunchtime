@@ -1,5 +1,10 @@
 class Restaurant < ActiveRecord::Base
-  attr_accessible :area, :image, :location, :name, :payment_options, :price_range, :service, :theme, :time, :vegi
+
+
+  attr_accessible :name, :theme, :location, :area, :image, :payment_options, :price_range, :menu_url #, :service, :theme, :time, :vegi
+
+  has_many :tips
+  has_many :checkins
 
   enum :theme, [:bistro,
                 :sandwich_bar,
@@ -21,6 +26,13 @@ class Restaurant < ActiveRecord::Base
       val = val.map(:to_s).join("|")
     end
     self[:payment_options] = val
+  end
+
+
+  def as_json(opt)
+    json = super
+    json[:payment_options] = payment_options
+    json
   end
 
 end

@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120502144337) do
+ActiveRecord::Schema.define(:version => 20120625185821) do
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "checkins", :force => true do |t|
+    t.integer  "restaurant_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.string   "location"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "restaurants", :force => true do |t|
     t.string   "name"
@@ -26,6 +48,25 @@ ActiveRecord::Schema.define(:version => 20120502144337) do
     t.integer  "vegi"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "menu_url"
+    t.string   "address"
+  end
+
+  create_table "tips", :force => true do |t|
+    t.integer  "restuarant_id"
+    t.integer  "checkin_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.integer  "company_id"
+    t.string   "role"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

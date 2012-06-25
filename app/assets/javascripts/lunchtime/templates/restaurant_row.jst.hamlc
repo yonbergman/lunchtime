@@ -1,0 +1,8 @@
+%td
+  %strong= @name
+%td
+  %span= @theme
+%td= @price_range
+%td.payment_options
+  - _.each @payment_options, (option) ->
+    %img{:src => "/assets/payment_options/#{option}.png"}

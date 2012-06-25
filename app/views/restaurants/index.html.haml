@@ -1,28 +1,19 @@
 %h1 All Restaurants
 
-%table.table.table-bordered
+%table.table.table-bordered.table-striped
   %thead
     %tr
       %td Name
       %td Theme
       %td Price Range
       %td Accepts
-
-
+  %tbody
 
 %a.btn.btn-large.btn-success{:href => new_restaurant_path} Add
 
+- content_for :javascript_body do
+  :javascript
+    App.restaurants = new App.Restaurants();
+    App.restaurants.reset(#{@restaurants.to_json});
+    new App.RestaurantsTableView({collection: App.restaurants})
 
-%script#rest_row{:type => "text/template"}
-  %td
-    %strong <%= name %>
-  %td
-    %span <%= theme %>
-  %td <%= price_range %>
-  %td.payment_options
-
-
-:javascript
-  $(document).ready(function(){
-    app.restaurants.reset(#{@restaurants.to_json});
-  })
