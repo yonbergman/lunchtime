@@ -9,5 +9,4 @@ class App.Router extends Backbone.Router
 
   show: (id) ->
     model = App.restaurants.get(id)
-    popup = new App.RestaurantDetailsView(model: model)
-    popup.show()
+    new App.RestaurantDetailsView(model: model, onClose: => @navigate('/', true))
