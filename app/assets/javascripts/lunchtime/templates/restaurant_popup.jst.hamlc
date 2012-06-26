@@ -1,0 +1,16 @@
+.modal
+  .modal-header
+    %button.close{:type => "button", :data => {:dismiss => 'modal'}} x
+    %h3= @name
+  .modal-body
+    %ul
+      %li
+        %strong Genre
+        %span= @theme
+      %li
+        %strong Address
+        %span= @address
+
+
+  .modal-footer
+    %a.btn{:data => {:dismiss => 'modal'}} close

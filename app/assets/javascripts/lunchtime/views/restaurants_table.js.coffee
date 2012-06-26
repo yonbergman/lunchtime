@@ -2,9 +2,15 @@ class App.RestaurantRowView extends Backbone.View
   tagName: "tr"
   template: JST['lunchtime/templates/restaurant_row']
 
+  events:
+    "click": "showDetails"
+
   render: ->
     @$el.html(@template(@model.asJSON()))
     @
+
+  showDetails: ->
+    App.router.navigate("/restaurant/#{@model.id}", true)
 
 class App.RestaurantsTableView extends Backbone.View
 

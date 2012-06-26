@@ -22,3 +22,6 @@
     App.search = new App.RestaurantsSearchView({collection: App.restaurants});
     new App.RestaurantsTableView({collection: App.restaurants});
 
+    App.router = new App.Router()
+    Backbone.history.start()
+
