@@ -3,7 +3,7 @@ class App.RestaurantRowView extends Backbone.View
   template: JST['lunchtime/templates/restaurant_row']
 
   render: ->
-    @$el.html(@template(@model.toJSON()))
+    @$el.html(@template(@model.asJSON()))
     @
 
 class App.RestaurantsTableView extends Backbone.View
@@ -18,6 +18,7 @@ class App.RestaurantsTableView extends Backbone.View
     @render()
 
   render: ->
+    @ui.tbody.html("")
     @collection.each (rest) =>
       row = new App.RestaurantRowView(model: rest)
       @ui.tbody.append(row.render().el)

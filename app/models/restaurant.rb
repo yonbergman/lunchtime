@@ -1,7 +1,7 @@
 class Restaurant < ActiveRecord::Base
 
 
-  attr_accessible :name, :theme, :location, :area, :image, :payment_options, :price_range, :menu_url #, :service, :theme, :time, :vegi
+  attr_accessible :name, :theme, :location, :area, :image, :payment_options, :price_range, :menu_url,:address #, :service, :theme, :time, :vegi
 
   has_many :tips
   has_many :checkins
@@ -23,7 +23,7 @@ class Restaurant < ActiveRecord::Base
 
   def payment_options=(val)
     if val.kind_of?(Array)
-      val = val.map(:to_s).join("|")
+      val = val.map(&:to_s).join("|")
     end
     self[:payment_options] = val
   end

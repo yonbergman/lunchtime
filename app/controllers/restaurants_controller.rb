@@ -27,14 +27,4 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  ## PUT /babies/1
-  #def update
-  #  @baby = Baby.find(params[:id])
-  #  if @baby.update_attributes(params[:baby])
-  #    redirect_to(@baby, :notice => 'Baby was successfully updated.')
-  #  else
-  #    render :action => "edit"
-  #  end
-  #end
-
 end
