@@ -3,13 +3,20 @@
     %button.close{:type => "button", :data => {:dismiss => 'modal'}} x
     %h3= @name
   .modal-body
-    %ul
+    %ul{:style => "float: left;"}
       %li
         %strong Genre
         %span= @theme
       %li
         %strong Address
         %span= @address
+
+    .maps{:style => "float: right"}
+      .btn-group{:data => {:toggle=>"buttons-radio"}, :style => "margin-bottom: 10px; "}
+        .btn.btn-small.active.goto_map Map
+        .btn.btn-small.goto_sv Street view
+      %img.map{:src => @mapSource}
+      %img.streetview.hide{:src => @streetMapSource}
 
 
   .modal-footer
