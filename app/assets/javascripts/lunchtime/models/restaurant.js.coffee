@@ -4,6 +4,7 @@ class App.Restaurant extends Backbone.Model
   defaults:
     name: "Unknown"
     price_range: -1
+    heading: 0
 
   priceRange: ->
     {"-1": "0-35", "0": "35-50", "1": "55-70"}[@get('price_range')]
