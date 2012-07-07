@@ -1,7 +1,8 @@
 class Restaurant < ActiveRecord::Base
 
 
-  attr_accessible :name, :theme, :location, :area, :image, :payment_options, :price_range, :menu_url,:address #, :service, :theme, :time, :vegi
+  attr_accessible :name, :theme, :image, :payment_options, :price_range, :menu_url #, :service, :theme, :time, :vegi
+  attr_accessible :location, :area, :address, :heading
 
   has_many :tips
   has_many :checkins
@@ -17,13 +18,18 @@ class Restaurant < ActiveRecord::Base
                 :asian
                ]
 
+  PAYMENT_OPTIONS = ["cash","credit","10bis"]
+
+  validates_presence_of :name, :location
+
   def payment_options
+    return [] if self[:payment_options].nil?
     self[:payment_options].split("|").map(&:to_sym)
   end
 
   def payment_options=(val)
     if val.kind_of?(Array)
-      val = val.map(&:to_s).join("|")
+      val = val.compact.map(&:to_s).join("|")
     end
     self[:payment_options] = val
   end
