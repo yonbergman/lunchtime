@@ -17,12 +17,16 @@
       %a{:href => root_path}
         %h1.logo
           Lunch Time
-    #main{:role => "main"}
-      .container
-        .content
-          .row
-            .span12
-              = render 'layouts/messages'
-              = yield
-          %footer
+        %h2
+          A place where hackers find food
+    = render 'layouts/messages'
+    .container
+      .row.top
+      .row.main
+    %footer
     = yield :javascript_body
+    :javascript
+      App.addInitializer(function(){
+        App.restaurants.reset(#{@restaurants.to_json});
+      })
+      App.start()

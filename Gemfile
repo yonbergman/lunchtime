@@ -25,6 +25,8 @@ group :assets do
   gem 'bootstrap-sass'
   gem 'haml_coffee_assets'
   gem 'compass-rails'
+  gem 'marionette-rails', '>= 0.9.3'
+  gem 'select2-rails'
 end
 
 gem 'jquery-rails'

@@ -1,23 +1,30 @@
 /*
  *= require_self
- *= require_tree .
+ *= require select2
+ *= require_tree ./app
 */
 
 
 header{
-  a, a:hover{
+  padding: 30px 0;
+  a, a:link, a:visited, a:hover{
     text-decoration: none;
     color: black;
   }
-  .logo{
+  h1,h2{
     font-family: 'Bree Serif', serif;
     font-size: 4em;
-    line-height: 100px;
     text-align: center;
+  }
+  h2{
+    font-size: 2em;
+    padding-top: 10px;
+    font-weight: normal;
+    color: #777;
   }
 }
 
-.content {
+.wella {
   background-color: #eee;
   padding: 20px;
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */

@@ -19,6 +19,7 @@ class Restaurant < ActiveRecord::Base
                ]
 
   PAYMENT_OPTIONS = ["cash","credit","10bis"]
+  PRICE_RANGES = {"0-35" => -1, "35-55" => 0 ,"55-70" => 1}
 
   validates_presence_of :name, :location
 
@@ -29,7 +30,7 @@ class Restaurant < ActiveRecord::Base
 
   def payment_options=(val)
     if val.kind_of?(Array)
-      val = val.compact.map(&:to_s).join("|")
+      val = val.compact.reject{|x| x.empty?}.map(&:to_s).join("|")
     end
     self[:payment_options] = val
   end

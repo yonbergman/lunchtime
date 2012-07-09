@@ -1,0 +1,7 @@
+%thead
+  %tr
+    %td Name
+    %td Theme
+    %td Price Range
+    %td Accepts
+%tbody

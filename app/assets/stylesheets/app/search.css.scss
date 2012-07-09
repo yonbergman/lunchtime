@@ -1,0 +1,21 @@
+.search{
+  text-align: center;
+  form{
+  }
+  .or{
+    height: 1px;
+    background: rgba(0, 0, 0, 0.05);
+    width: 100%;
+    position: relative;
+    margin: 20px 0;
+    span{
+      position: absolute;
+      top: -9px;
+      //width: 100%;
+      background: whiteSmoke;
+      padding: 0 10px;
+    }
+  }
+  .more{
+  }
+}

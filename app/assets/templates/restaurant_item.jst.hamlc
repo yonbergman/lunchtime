@@ -1,0 +1,6 @@
+%h4.name
+  .theme{:class => @theme}
+  = @name
+.details
+  .theme-name= @theme
+  .location= @location

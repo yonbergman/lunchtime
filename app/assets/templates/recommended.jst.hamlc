@@ -1,0 +1,6 @@
+.span6
+  %h3 Favorite Restaurants
+  %ul.fav
+.span6
+  %h3 Newest Restaurants
+  %ul.new

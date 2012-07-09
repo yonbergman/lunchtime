@@ -1,27 +1,25 @@
-%h1 All Restaurants
-
-.search
-  %table.table.table-bordered.table-striped
-    %thead
-      %tr
-        %td Name
-        %td Theme
-        %td Price Range
-        %td Accepts
-    %tbody
-
-  %a.btn.btn-large.btn-success{:href => new_restaurant_path} Add
-  %a.btn.btn-large.shuffle{:href => "javascript:;"}
-    %i.icon-random
-    Shuffle
-
-- content_for :javascript_body do
-  :javascript
-    App.restaurants = new App.Restaurants();
-    App.restaurants.reset(#{@restaurants.to_json});
-    App.search = new App.RestaurantsSearchView({collection: App.restaurants});
-    new App.RestaurantsTableView({collection: App.restaurants});
-
-    App.router = new App.Router()
-    Backbone.history.start()
-
+-#-#%h1 All Restaurants
+-#-#
+-#-#.search
+-#-#  %table.table.table-bordered.table-striped
+-#-#    %thead
+-#-#      %tr
+-#-#        %td Name
+-#-#        %td Theme
+-#-#        %td Price Range
+-#-#        %td Accepts
+-#-#    %tbody
+-#-#
+-#-#  %a.btn.btn-large.btn-success{:href => new_admin_restaurant_path} Add
+-#-#  %a.btn.btn-large.shuffle{:href => "javascript:;"}
+-#-#    %i.icon-random
+-#-#    Shuffle
+-#
+-#- content_for :javascript_body do
+-#  :javascript
+-#    App.restaurants = new App.Restaurants();
+-#    App.restaurants.reset(#{@restaurants.to_json});
+-#
+-#    App.router = new App.Router()
+-#    Backbone.history.start()
+-#

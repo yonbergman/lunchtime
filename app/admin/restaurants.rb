@@ -1,9 +1,18 @@
 ActiveAdmin.register Restaurant do
+  index do
+     column :name
+     column :theme
+     column :price_range
+     column :payment_options
+     default_actions
+   end
+
   form do |f|
     f.inputs "Details" do
       f.input :name
-      f.input :theme, :label => "Theme", :as => :select, :collection => Restaurant::THEMES
+      f.input :theme, :label => "Theme", :as => :select, :collection => Hash[Restaurant::THEMES.map{|x| [x.to_s.humanize,x]}]
       f.input :payment_options, :as => :check_boxes, :collection => Restaurant::PAYMENT_OPTIONS
+      f.input :price_range, :as => :select, :collection => Restaurant::PRICE_RANGES
       f.input :image
       f.input :menu_url
     end
@@ -18,4 +27,5 @@ ActiveAdmin.register Restaurant do
     f.buttons
 
   end
+
 end

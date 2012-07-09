@@ -1,0 +1,25 @@
+%h3
+  .theme{:class => @theme}
+  = @name
+%ul{:style => "float: left;"}
+  %li
+    %strong Genre
+    %span= @theme
+  %li
+    %strong Address
+    %span= @address
+  %li
+    %strong Price Range
+    %span= @price_range
+  %li
+    %strong Payment Options
+    %span.payment_options
+      - _.each @payment_options, (option) ->
+        %img{:src => "/assets/payment_options/#{option}.png"}
+
+.maps{:style => "float: right"}
+  .btn-group{:data => {:toggle=>"buttons-radio"}, :style => "margin-bottom: 10px; "}
+    .btn.btn-small.active.goto_map Map
+    .btn.btn-small.goto_sv Street view
+  %img.map{:src => @mapSource}
+  %img.streetview.hide{:src => @streetMapSource}

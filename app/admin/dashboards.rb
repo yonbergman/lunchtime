@@ -9,8 +9,8 @@ ActiveAdmin::Dashboards.build do
   #
   #   section "Recent Posts" do
   #     ul do
-  #       Post.recent(5).collect do |post|
-  #         li link_to(post.title, admin_post_path(post))
+  #       Restaurant.all(1).collect do |post|
+  #         li link_to(post.name, admin_restaurant_path(post))
   #       end
   #     end
   #   end

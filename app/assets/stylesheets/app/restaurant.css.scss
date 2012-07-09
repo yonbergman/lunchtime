@@ -8,7 +8,7 @@
 }
 
 .theme{
-  display: block;
+  display: inline-block;
   width: 32px;
   height: 32px;
   background: url(/assets/themes/icons_01.png) no-repeat;
@@ -17,3 +17,4 @@
   &.italien{ @include icon('03') }
   &.bistro{ @include icon('03') }
 }
+
