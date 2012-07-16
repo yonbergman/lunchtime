@@ -3,6 +3,9 @@ Lunchtime::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :restaurants
+  resources :restaurants do
+    resources :tips
+  end
+
   root :to => 'restaurants#index'
 end

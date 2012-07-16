@@ -1,0 +1,4 @@
+%form
+  %textarea.content
+  %button.btn{:type => "submit"} Save Tip
+%ul.tips

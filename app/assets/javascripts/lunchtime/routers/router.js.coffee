@@ -26,8 +26,7 @@ class App.Router extends Backbone.Router
   show: (id) ->
     model = App.restaurants.get(id)
     App.top.show(new App.RestaurantTopDetailsView(model: model))
-    App.main.close()
-#    App.main.show(new App.RestaurantTopDetailsView(model: model))
+    App.main.show(new App.RestaurantMainView(model: model))
 
   gotoShow: (model)->
     @navigate("/s/#{model.id}/#{model.get('name')}", true)

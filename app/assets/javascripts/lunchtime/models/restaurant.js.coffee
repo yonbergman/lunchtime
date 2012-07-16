@@ -8,6 +8,9 @@ class App.Restaurant extends Backbone.Model
     theme: null
     location: null
 
+  initialize: (data) ->
+    @set("tips", new App.Tips(data.tips, parent: @))
+
   priceRange: ->
     {"-1": "0-35", "0": "35-50", "1": "55-70"}[@get('price_range')]
 

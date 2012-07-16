@@ -39,6 +39,7 @@ class Restaurant < ActiveRecord::Base
   def as_json(opt)
     json = super
     json[:payment_options] = payment_options
+    json[:tips] = tips
     json
   end
 

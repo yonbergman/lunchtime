@@ -2,7 +2,7 @@ class App.RestaurantTopDetailsView extends Backbone.Marionette.ItemView
 
   template: 'restaurant_top'
 
-  events: ->
+  events:
     "click .goto_map": "showMap"
     "click .goto_sv": "showStreetView"
 
@@ -19,3 +19,29 @@ class App.RestaurantTopDetailsView extends Backbone.Marionette.ItemView
   showMap: ->
     @$el.find(".map").show()
     @$el.find(".streetview").hide()
+
+class App.RestaurantMainView extends Backbone.Marionette.ItemView
+  template: "restaurant_main"
+
+  events: ->
+    "click .btn": "addTip"
+
+  ui:
+    form: "form"
+    textarea: "textarea"
+    tips: "ul"
+
+  addTip: (ev) ->
+    ev.preventDefault()
+    @model.get("tips").create(content: @ui.textarea.val())
+    @ui.form.get(0).reset()
+
+  onShow: ->
+    new App.TipsView(collection: @model.get('tips'), el: @ui.tips).render()
+
+class App.TipView extends Backbone.Marionette.ItemView
+  template: "tip"
+  tagName: "li"
+
+class App.TipsView extends Backbone.Marionette.CollectionView
+  itemView: App.TipView
