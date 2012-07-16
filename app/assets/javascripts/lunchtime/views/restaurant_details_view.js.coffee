@@ -20,8 +20,14 @@ class App.RestaurantTopDetailsView extends Backbone.Marionette.ItemView
     @$el.find(".map").show()
     @$el.find(".streetview").hide()
 
-class App.RestaurantMainView extends Backbone.Marionette.ItemView
+class App.TipView extends Backbone.Marionette.ItemView
+  template: "tip"
+  tagName: "li"
+
+class App.RestaurantMainView extends Backbone.Marionette.CompositeView
   template: "restaurant_main"
+  itemView: App.TipView
+  itemViewContainer: "ul"
 
   events: ->
     "click .btn": "addTip"
@@ -33,15 +39,5 @@ class App.RestaurantMainView extends Backbone.Marionette.ItemView
 
   addTip: (ev) ->
     ev.preventDefault()
-    @model.get("tips").create(content: @ui.textarea.val())
+    @collection.create(content: @ui.textarea.val())
     @ui.form.get(0).reset()
-
-  onShow: ->
-    new App.TipsView(collection: @model.get('tips'), el: @ui.tips).render()
-
-class App.TipView extends Backbone.Marionette.ItemView
-  template: "tip"
-  tagName: "li"
-
-class App.TipsView extends Backbone.Marionette.CollectionView
-  itemView: App.TipView
